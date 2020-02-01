@@ -1,21 +1,21 @@
 {
-  "name": "nodejs-boilerplate",
+  "name": "dpkg-status-exporter",
   "version": "1.0.0",
-  "description": "A Node.js project boilerplate",
+  "description": "HTML summary exporter for /var/lib/dpkg/status",
   "main": "index.js",
   "scripts": {
     "test": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linuswillner/nodejs-boilerplate.git"
+    "url": "git+https://github.com/linuswillner/dpkg-status-exporter.git"
   },
   "author": "Linus Willner <hello@linuswillner.me> (https://linuswillner.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/linuswillner/nodejs-boilerplate/issues"
+    "url": "https://github.com/linuswillner/dpkg-status-exporter/issues"
   },
-  "homepage": "https://github.com/linuswillner/nodejs-boilerplate#readme",
+  "homepage": "https://github.com/linuswillner/dpkg-status-exporter#readme",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^6.8.0",
