@@ -1,4 +1,3 @@
-const fs = require('fs')
 const debCtrlToJson = require('./src/debian-control-to-json')
 const readDpkgStatus = require('./src/utils/readDpkgStatus')
 const filterExtraFields = require('./src/formatters/filterExtraFields')
