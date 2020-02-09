@@ -7,6 +7,16 @@
     <meta name="description" content="An HTML exporter for /var/lib/dpkg/status">
     <meta name="author" content="Linus Willner">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <style>
+      .package-list {
+        list-style-type: none;
+        padding-left: 0px;
+      }
+
+      .package-list li {
+        padding-bottom: 2px;
+      }
+    </style>
   </head>
   <body>
     <noscript>
@@ -15,10 +25,18 @@
       due to the absence of support for the HTML5 <code>details</code> element.
     </noscript>
     <h2>Index of /var/lib/dpkg/status</h2>
-    <div>
-      [packageData]
-    </div>
+    <ul class="package-list">
+      [packageList]
+    </ul>
     <!-- Polyfill details support in Internet Explorer and Edge -->
     <script src="https://cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js"></script>
+    <script>
+      // Function to scroll a specific package into view and open its details automatically
+      function jumpToPackage (name) {
+        const package = document.getElementById(name)
+        package.scrollIntoView()
+        package.open = true
+      }
+    </script>
   </body>
 </html>
