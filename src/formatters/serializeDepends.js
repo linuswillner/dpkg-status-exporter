@@ -1,11 +1,10 @@
 /**
  * Strip version numbers from the Depends field and format it to an array
- * @param packageData Serialised dpkg status data
- * @see https://www.reaktor.com/junior-dev-assignment/
+ * @param {Object} packageList Serialised dpkg status data (Extraneous field filtering is not necessary but recommended)
  */
-module.exports = packageData => {
-  for (const pkg in packageData) {
-    const currentPackage = packageData[pkg]
+module.exports = packageList => {
+  for (const pkg in packageList) {
+    const currentPackage = packageList[pkg]
 
     // Only process packages that have dependencies
     if (currentPackage.Depends) {
@@ -15,8 +14,7 @@ module.exports = packageData => {
 
       const dependencies = {}
 
-      // Format dependencies from a text-only list into the dependency record with possible alternates listed
-      dependencyList.forEach(dep => {
+      for (const dep of dependencyList) {
         // Check if dependency has alternates
         if (dep.includes('|')) {
           const alternates = dep.split(' | ')
@@ -25,10 +23,10 @@ module.exports = packageData => {
           const name = alternates.splice(0, 1)[0]
           dependencies[name] = { alternates }
         } else {
-          // The dependency has no alternates, so use it alone as the key
+          // The dependency has no alternates
           dependencies[dep] = { alternates: [] }
         }
-      })
+      }
 
       // Replace current dependency list with the new objectified list
       currentPackage.Depends = dependencies
@@ -37,9 +35,9 @@ module.exports = packageData => {
       currentPackage.Depends = {}
     }
 
-    // Replace old package data with the changed data
-    packageData[pkg] = currentPackage
+    // Update package data
+    packageList[pkg] = currentPackage
   }
 
-  return packageData
+  return packageList
 }

@@ -1,21 +1,20 @@
 /**
  * Filter extraneous fields according to the spec for dpkg status data
- * @param packageData Serialised dpkg status data
- * @see https://www.reaktor.com/junior-dev-assignment/
+ * @param {Object} packageList Serialised dpkg status data
  */
-module.exports = packageData => {
+module.exports = packageList => {
   const fieldsToInclude = [
     'Description',
     'Depends'
   ]
 
-  for (const pkg in packageData) {
-    const currentPackage = packageData[pkg]
+  for (const pkg in packageList) {
+    const currentPackage = packageList[pkg]
 
     for (const field in currentPackage) {
       if (!fieldsToInclude.includes(field)) delete currentPackage[field]
     }
   }
 
-  return packageData
+  return packageList
 }
