@@ -2786,7 +2786,7 @@ Description: Command-line tools to process Debian package information
  .
    grep-dctrl     - Grep dctrl-format files
    grep-available - Grep the DPKG available database
-   grep-status    - Grep the DPKG status database
+   grep-status    - Grep the dpkg status indexbase
    grep-aptavail  - Grep the APT available database
    grep-debtags   - Grep the Debtags package database
  .
