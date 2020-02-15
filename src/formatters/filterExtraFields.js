@@ -1,6 +1,7 @@
 /**
- * Filter extraneous fields according to the spec for dpkg status data
- * @param {Object} packageList Serialised dpkg status data
+ * Filter extraneous fields from the dpkg status index
+ * @param {Object} packageList Serialised dpkg status index
+ * @returns {Object} Index where all fields except Description and Depends (Optional) have been removed
  */
 module.exports = packageList => {
   const fieldsToInclude = [

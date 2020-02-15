@@ -24,7 +24,7 @@ const mapDependencies = (dependencies, packageList) => {
 
 /**
  * Strip version numbers from the Depends field and format it to an array
- * @param {Object} packageList Fully serialised and processed dpkg status data
+ * @param {Object} packageList Fully serialised and processed dpkg status index
  */
 module.exports = packageList => {
   const packageDetails = []
