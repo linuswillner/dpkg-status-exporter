@@ -1,12 +1,8 @@
-const fs = require('fs')
-const path = require('path')
-const debCtrlToJson = require('../../src/debian-control-to-json')
-
-const mockStatus = fs.readFileSync(path.join(__dirname, '../status.real'), { encoding: 'utf-8' })
+const createMockPackageIndex = require('../../test-utils/createMockPackageIndex')
 let packageIndex
 
 beforeAll(async () => {
-  packageIndex = await debCtrlToJson(mockStatus)
+  packageIndex = await createMockPackageIndex()
 })
 
 describe('debian-control-to-json', () => {
