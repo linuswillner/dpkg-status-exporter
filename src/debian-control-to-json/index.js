@@ -4,9 +4,6 @@
  * @see https://www.debian.org/doc/debian-policy/ch-controlfields.html
  */
 module.exports = async controlFile => {
-  // In case line endings are malformed to CRLF for some reason, normalise to LF
-  if (controlFile.includes('\r\n')) controlFile.replace('\r\n', '\n')
-
   // Split file content into an array of lines
   const lines = controlFile.split('\n')
 
