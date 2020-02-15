@@ -2,7 +2,7 @@
 const createLink = packageName => `<a href="#${packageName}" onclick="jumpToPackage('${packageName}')">${packageName}</a>`
 
 // Merge dependencies into an array and map alternates, if any, to links (If present in the index)
-const processDependencies = (dependencies, packageList) => {
+const mapDependencies = (dependencies, packageList) => {
   const dependencyList = []
 
   for (const dep in dependencies) {
@@ -31,7 +31,7 @@ module.exports = packageList => {
 
   for (const pkg in packageList) {
     const currentPackage = packageList[pkg]
-    const dependencyLinks = processDependencies(currentPackage.Depends, packageList).join(', ')
+    const dependencyLinks = mapDependencies(currentPackage.Depends, packageList).join(', ')
     const dependentLinks = currentPackage.Dependents.map(dep => createLink(dep)).join(', ')
 
     const html = `
@@ -40,11 +40,11 @@ module.exports = packageList => {
           <summary>${pkg}</summary>
           <div><b>Name:</b> ${pkg}</div>
           <div><b>Description:</b> ${currentPackage.Description.replace(/\n/g, '<br>')}</div>
-          <div>${currentPackage.Depends ? `<b>Dependencies:</b> ${dependencyLinks}` : ''}</div>
+          <div>${currentPackage.Depends.length > 0 ? `<b>Dependencies:</b> ${dependencyLinks}` : ''}</div>
           <div>${currentPackage.Dependents.length > 0 ? `<b>Dependents:</b> ${dependentLinks}` : ''}</div>
         </details>
       </li>
-    `.trimRight() // Trim excess start and end whitespace
+    `.trimRight() // Trim excess end whitespace
 
     packageDetails.push(html)
   }
