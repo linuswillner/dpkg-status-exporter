@@ -58,15 +58,3 @@ describe('generateHTML formatter', () => {
     }
   })
 })
-
-/*
-      expect(fields[0]).toEqual('<li>')
-      expect(fields[1]).toEqual(expect.stringMatching(/<details id="\S+">/gi))
-      expect(fields[2]).toEqual(expect.stringMatching(/<summary>\S+<\/summary>/gi))
-      expect(fields[3]).toEqual(expect.stringMatching(/<div name="name"><b>Name:<\/b> \S+<\/div>/gi))
-      expect(fields[4]).toEqual(expect.stringMatching(/<div name="description"><b>Description:<\/b> \S+<\/div>/gi))
-      expect(fields[5]).toEqual(expect.stringMatching(/<div name="dependencies">\S*<\/div>/gi))
-      expect(fields[6]).toEqual(expect.stringMatching(/<div name="dependents">\S*<\/div>/gi))
-      expect(fields[7]).toEqual('</details>')
-      expect(fields[7]).toEqual('</li>')
-*/
