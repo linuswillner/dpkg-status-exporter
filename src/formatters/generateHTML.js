@@ -34,14 +34,17 @@ module.exports = packageList => {
     const dependencyLinks = mapDependencies(currentPackage.Depends, packageList).join(', ')
     const dependentLinks = currentPackage.Dependents.map(dep => createLink(dep)).join(', ')
 
+    const hasDependencies = currentPackage.Depends.length > 0
+    const hasDependents = currentPackage.Dependents.length > 0
+
     const html = `
-      <li>
-        <details id="${pkg}">
-          <summary>${pkg}</summary>
-          <div><b>Name:</b> ${pkg}</div>
-          <div><b>Description:</b> ${currentPackage.Description.replace(/\n/g, '<br>')}</div>
-          <div>${currentPackage.Depends.length > 0 ? `<b>Dependencies:</b> ${dependencyLinks}` : ''}</div>
-          <div>${currentPackage.Dependents.length > 0 ? `<b>Dependents:</b> ${dependentLinks}` : ''}</div>
+      <li data-testid="package">
+        <details data-testid="details" id="${pkg}">
+          <summary data-testid="summary">${pkg}</summary>
+          <div data-testid="name"><b>Name:</b> ${pkg}</div>
+          <div data-testid="description"><b>Description:</b> ${currentPackage.Description.replace(/\n/g, '<br>')}</div>
+          <div data-testid="dependencies">${hasDependencies ? `<b>Dependencies:</b> ${dependencyLinks}` : ' '}</div>
+          <div data-testid="dependents">${hasDependents ? `<b>Dependents:</b> ${dependentLinks}` : ' '}</div>
         </details>
       </li>
     `.trimRight() // Trim excess end whitespace
