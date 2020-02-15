@@ -33,7 +33,7 @@ module.exports = {
     'node_modules',
     'coverage',
     'jest.config.js',
-    'jest-setup-files'
+    'test-utils'
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
@@ -132,7 +132,7 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './jest-setup-files/toBeType.js'
+    './test-utils/setupExtends.js'
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
