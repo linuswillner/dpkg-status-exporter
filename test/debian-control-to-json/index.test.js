@@ -35,7 +35,7 @@ describe('debian-control-to-json', () => {
   it('creates new index keys instead of including the Package field', () => {
     for (const pkg in packageIndex) {
       const currentPackage = packageIndex[pkg]
-      expect(currentPackage.Package).toBe(undefined)
+      expect(currentPackage.Package).toBeUndefined()
     }
   })
 })
