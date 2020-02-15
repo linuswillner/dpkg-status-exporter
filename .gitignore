@@ -3,3 +3,6 @@ node_modules
 
 # Generated output
 out
+
+# Code coverage
+coverage
