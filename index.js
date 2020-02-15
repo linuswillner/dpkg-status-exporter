@@ -20,6 +20,6 @@ const {
     await createHTMLIndex(htmlList) // Write the final output to out/index.html
     console.log(`Successfully exported /var/lib/dpkg/status to ${path.join(process.cwd(), 'out/index.html')}`)
   } catch (err) {
-    console.error('Error: Could not export /var/lib/dpkg/status to HTML: ', err)
+    console.error('Failed to export /var/lib/dpkg/status to HTML: ', err)
   }
 })()

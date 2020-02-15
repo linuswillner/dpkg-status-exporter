@@ -23,6 +23,6 @@ module.exports = async htmlList => {
 
     writeFile(outputFile, html)
   } catch (err) {
-    console.error('Error: Could not create HTML index: ', err)
+    throw new Error('Could not generate HTML index from template ', err)
   }
 }
