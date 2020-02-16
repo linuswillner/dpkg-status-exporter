@@ -10,8 +10,8 @@ describe('debian-control-to-json', () => {
     expect(packageIndex).toBeType('object')
   })
 
-  it('contains all packages (700)', () => {
-    expect(Object.keys(packageIndex)).toHaveLength(700)
+  it('contains all packages (6)', () => {
+    expect(Object.keys(packageIndex)).toHaveLength(6)
   })
 
   it('serialises each package into an object', () => {
