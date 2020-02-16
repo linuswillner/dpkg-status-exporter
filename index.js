@@ -11,7 +11,7 @@ const {
 
 ;(async () => {
   try {
-    const dpkgStatus = await readDpkgStatus() // Read /var/lib/dpkg/status
+    const dpkgStatus = await readDpkgStatus('/var/lib/dpkg/status')
     const serialised = await debCtrlToJson(dpkgStatus) // Serialize Debian control file syntax to JSON
     const filtered = filterExtraFields(serialised) // Filter redundant fields from the serialised data
     const formatted = serializeDepends(filtered) // Serialize Depends field
