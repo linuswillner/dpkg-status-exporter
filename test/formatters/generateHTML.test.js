@@ -25,7 +25,7 @@ describe('generateHTML formatter', () => {
     packageIndex.forEach(pkg => expect(pkg).toBeType('string'))
   })
 
-  it.only('generates a valid HTML structure', () => {
+  it('generates a valid HTML structure', () => {
     const packages = Array.from(document.querySelectorAll('li')).map(pkg => {
       // Create a temporary container so that the existence of the list item (Container) can be checked
       const container = document.createElement('div')
