@@ -1,10 +1,9 @@
-const createMockPackageIndex = require('../../test-utils/createMockPackageIndex')
+const mockPackageIndex = require('../../__test-utils__/dpkgStatusSample').index
 const { filterExtraFields } = require('../../src/formatters')
 let packageIndex
 
-beforeAll(async () => {
-  const index = await createMockPackageIndex()
-  packageIndex = filterExtraFields(index)
+beforeAll(() => {
+  packageIndex = filterExtraFields(mockPackageIndex)
 })
 
 describe('filterExtraFields formatter', () => {

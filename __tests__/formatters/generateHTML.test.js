@@ -3,7 +3,7 @@
  */
 
 const { getByTestId } = require('@testing-library/dom')
-const createMockPackageIndex = require('../../test-utils/createMockPackageIndex')
+const mockPackageIndex = require('../../__test-utils__/dpkgStatusSample').index
 const {
   filterExtraFields,
   serializeDepends,
@@ -13,9 +13,9 @@ const {
 
 let packageIndex
 
-beforeAll(async () => {
-  const index = await createMockPackageIndex()
-  packageIndex = generateHTML(parseDependents(serializeDepends(filterExtraFields(index))))
+beforeAll(() => {
+  // TODO: When the ESNext pipeline operator is introduced, port this code to it
+  packageIndex = generateHTML(parseDependents(serializeDepends(filterExtraFields(mockPackageIndex))))
   document.body.innerHTML = packageIndex.join('')
 })
 

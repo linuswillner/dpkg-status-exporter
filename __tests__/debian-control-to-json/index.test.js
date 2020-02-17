@@ -1,17 +1,12 @@
-const createMockPackageIndex = require('../../test-utils/createMockPackageIndex')
-let packageIndex
-
-beforeAll(async () => {
-  packageIndex = await createMockPackageIndex()
-})
+const packageIndex = require('../../__test-utils__/dpkgStatusSample').index
 
 describe('debian-control-to-json', () => {
   it('returns an object', () => {
     expect(packageIndex).toBeType('object')
   })
 
-  it('contains all packages (6)', () => {
-    expect(Object.keys(packageIndex)).toHaveLength(6)
+  it('contains all packages (8)', () => {
+    expect(Object.keys(packageIndex)).toHaveLength(8)
   })
 
   it('serialises each package into an object', () => {

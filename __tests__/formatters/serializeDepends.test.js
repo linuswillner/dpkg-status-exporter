@@ -1,10 +1,9 @@
-const createMockPackageIndex = require('../../test-utils/createMockPackageIndex')
+const mockPackageIndex = require('../../__test-utils__/dpkgStatusSample').index
 const { serializeDepends } = require('../../src/formatters')
 let packageIndex
 
 beforeAll(async () => {
-  const index = await createMockPackageIndex()
-  packageIndex = serializeDepends(index)
+  packageIndex = serializeDepends(mockPackageIndex)
 })
 
 describe('serializeDepends formatter', () => {
