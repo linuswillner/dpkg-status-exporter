@@ -7,6 +7,7 @@
     "start": "node server.js",
     "start-debug": "cross-env DEBUG=true node server.js",
     "start-dev": "cross-env DEBUG=true nodemon server.js 6500 status.real",
+    "test": "jest",
     "test-watch": "jest --watch",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix"
@@ -23,10 +24,13 @@
   "homepage": "https://github.com/linuswillner/dpkg-status-exporter#readme",
   "dependencies": {},
   "devDependencies": {
+    "cross-env": "^7.0.0",
+    "nodemon": "^2.0.2"
+  },
+  "optionalDependencies": {
     "@testing-library/dom": "^6.12.2",
     "@testing-library/jest-dom": "^5.1.1",
     "@types/jest": "^25.1.2",
-    "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.0",
@@ -34,7 +38,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^25.1.0",
-    "jest-tobetype": "^1.2.3",
-    "nodemon": "^2.0.2"
+    "jest-tobetype": "^1.2.3"
   }
 }
