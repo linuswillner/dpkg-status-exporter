@@ -33,7 +33,8 @@ module.exports = {
     'node_modules',
     'coverage',
     'jest.config.js',
-    '__test-utils__'
+    '__test-utils__',
+    'server.js'
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
