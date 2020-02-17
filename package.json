@@ -2,9 +2,9 @@
   "name": "dpkg-status-exporter",
   "version": "1.0.0",
   "description": "HTML summary exporter for /var/lib/dpkg/status",
-  "main": "index.js",
+  "main": "dpkg-status-exporter.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node dpkg-status-exporter.js",
     "test": "jest",
     "test-watch": "jest --watch",
     "lint": "eslint .",

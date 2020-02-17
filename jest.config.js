@@ -33,7 +33,8 @@ module.exports = {
     'node_modules',
     'coverage',
     'jest.config.js',
-    'test-utils'
+    '__test-utils__',
+    'dpkg-status-exporter.js' // Testing the main runner is redundant since unit/integration tests cover all its non-trivial components
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
@@ -132,7 +133,7 @@ module.exports = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './test-utils/setupExtends.js'
+    './__test-utils__/setupExtends.js'
   ],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
