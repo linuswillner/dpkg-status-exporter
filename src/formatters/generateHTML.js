@@ -12,7 +12,7 @@ const mapDependencies = (dependencies, packageList) => {
       // If alternate is included in the index, linkify it, otherwise just print its name
       const alternateLinks = alternates.map(alt => packageList[alt] ? createLink(alt) : alt)
       // Create link for original dependency as well and join it together with its alternates
-      const formattedDependencies = `${createLink(dep)} | ${alternateLinks.join(' | ')}`
+      const formattedDependencies = `${createLink(dep)} <b>|</b> ${alternateLinks.join(' <b>|</b> ')}`
       dependencyList.push(formattedDependencies)
     } else {
       dependencyList.push(createLink(dep))
