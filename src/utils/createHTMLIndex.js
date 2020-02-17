@@ -10,8 +10,8 @@ const mkdir = util.promisify(fs.mkdir)
 
 module.exports = async htmlList => {
   const templateFile = path.join(process.cwd(), 'src/pages/template.html')
-  const outputPath = path.join(process.cwd(), 'out')
-  const outputFile = path.join(process.cwd(), 'out/index.html')
+  const outputPath = path.join(process.cwd(), 'pages')
+  const outputFile = path.join(process.cwd(), 'pages/index.html')
 
   try {
     // Read template and inject data
