@@ -3,7 +3,7 @@
  * @param controlFile The UTF-8 encoded contents of a file using Debian control file syntax.
  * @see https://www.debian.org/doc/debian-policy/ch-controlfields.html
  */
-module.exports = async controlFile => {
+module.exports = controlFile => {
   // Split file content into an array of lines
   const lines = controlFile.split('\n')
 
