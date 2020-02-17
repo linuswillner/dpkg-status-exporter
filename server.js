@@ -10,7 +10,8 @@ const readFile = util.promisify(fs.readFile)
 process.argv.splice(0, 2)
 
 const port = process.argv[0] || 6500
-const dpkgStatusLocationOverride = process.env.DEBUG && process.argv[1] // Only allow manual overrides in debug for safety reasons
+// Only allow manual overrides in debug for security reasons
+const dpkgStatusLocationOverride = process.env.DEBUG && process.argv[1]
 
 if (process.env.DEBUG) console.warn('Starting in debug mode, manual overriding of the location of /var/lib/dpkg/status/ has been enabled!')
 if (dpkgStatusLocationOverride) console.warn(`Manually overriding location of /var/lib/dpkg/status to ${dpkgStatusLocationOverride}.`)
