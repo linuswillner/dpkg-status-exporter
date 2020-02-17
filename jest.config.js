@@ -33,8 +33,7 @@ module.exports = {
     'node_modules',
     'coverage',
     'jest.config.js',
-    '__test-utils__',
-    'dpkg-status-exporter.js' // Testing the main runner is redundant since unit/integration tests cover all its non-trivial components
+    '__test-utils__'
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
