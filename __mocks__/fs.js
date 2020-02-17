@@ -1,6 +1,7 @@
 const path = require('path')
 const fs = jest.genMockFromModule('fs')
 
+// Mock file contents to skirt around having to hit the FS
 const mockFiles = {
   '/var/lib/dpkg/status': require('../__test-utils__/dpkgStatusSample').raw,
   [path.join(process.cwd(), 'src/pages/template.html')]: '[packageList]'
@@ -8,16 +9,17 @@ const mockFiles = {
 
 const overrides = {}
 
-// Functions to alter return values for various FS functions
-
+// Override the return value of fs.existsSync()
 function __setExistsSyncOverride (valueToReturn) {
   overrides.existsSync = valueToReturn
 }
 
+// Sets an error to appear on fs.writeFile()
 function __setWriteFileError (error) {
   overrides.writeFile = error
 }
 
+// Sets an error to appear on fs.mkdir()
 function __setMkdirError (error) {
   overrides.mkdir = error
 }

@@ -2,14 +2,12 @@ const os = jest.genMockFromModule('os')
 
 let currentPlatform
 
-/**
- * Overrides the return value of os.platform().
- * @param {String} platform Desired platform to mock.
- * @see https://nodejs.org/api/os.html#os_os_platform
- */
+// Override the return value of os.platform()
 function __setPlatformOverride (newPlatform) {
   currentPlatform = newPlatform
 }
+
+// Mocks for various OS functions
 
 function platform () {
   return currentPlatform
