@@ -34,7 +34,7 @@ module.exports = packageList => {
     const dependencyLinks = mapDependencies(currentPackage.Depends, packageList).join(', ')
     const dependentLinks = currentPackage.Dependents.map(dep => createLink(dep)).join(', ')
 
-    const hasDependencies = currentPackage.Depends.length > 0
+    const hasDependencies = Object.keys(currentPackage.Depends).length > 0
     const hasDependents = currentPackage.Dependents.length > 0
 
     const html = `
