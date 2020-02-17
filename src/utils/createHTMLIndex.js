@@ -21,8 +21,8 @@ module.exports = async htmlList => {
     // Ensure output directory; using existsSync because exists is deprecated
     if (!fs.existsSync(outputPath)) await mkdir(outputPath)
 
-    writeFile(outputFile, html)
+    await writeFile(outputFile, html)
   } catch (err) {
-    throw new Error('Could not generate HTML index from template ', err)
+    throw new Error(`Could not generate HTML index from template: ${err}`)
   }
 }

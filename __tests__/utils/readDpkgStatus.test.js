@@ -12,7 +12,7 @@ describe('readDpkgStatus utility', () => {
     os.__setPlatformOverride('win32')
 
     await expect(readDpkgStatus('/var/lib/dpkg/status/')).rejects
-      .toThrow('This operating system does not appear to be a *nix system.')
+      .toThrowError('This operating system does not appear to be a *nix system.')
   })
 
   it('throws an unsupported package manager or file corruption error on Linux', async () => {
@@ -20,7 +20,7 @@ describe('readDpkgStatus utility', () => {
     os.__setPlatformOverride('linux')
 
     await expect(readDpkgStatus('/var/lib/dpkg/status/')).rejects
-      .toThrow('The operating system may be using a package manager other than Aptitude, or the file may be missing/corrupted.')
+      .toThrowError('The operating system may be using a package manager other than Aptitude, or the file may be missing/corrupted.')
   })
 
   it('reads /var/lib/dpkg/status and returns a string', async () => {
