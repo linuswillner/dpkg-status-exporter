@@ -2,7 +2,6 @@ const fs = require('fs')
 const util = require('util')
 const os = require('os')
 
-// Promisify fs.readFile
 const readFile = util.promisify(fs.readFile)
 
 module.exports = async statusFile => {

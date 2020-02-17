@@ -3,7 +3,6 @@ const util = require('util')
 const os = require('os')
 const path = require('path')
 
-// Promisify fs functions used
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 const mkdir = util.promisify(fs.mkdir)

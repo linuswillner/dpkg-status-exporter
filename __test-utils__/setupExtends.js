@@ -1,3 +1,5 @@
+// Jest expect() extensions setup file
+
 const { toBeType } = require('jest-tobetype')
 const {
   toBeEmpty,
