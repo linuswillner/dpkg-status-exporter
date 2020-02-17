@@ -1,17 +1,9 @@
-// Export the contents of the entire formatter directory recursively for easier access
+// Export the contents of the entire formatter directory for easier access
+// BUG: Having to hardcode this because fs.readdirSync returns undefined when mocking, which is the only known way to do this
 
-const fs = require('fs')
-const path = require('path')
-
-const formatters = fs.readdirSync(__dirname)
-  .filter(formatter => formatter !== 'index.js') // Exclude this file
-  .map(formatter => {
-    return {
-      name: formatter.split('.')[0],
-      path: path.join(__dirname, formatter)
-    }
-  })
-
-for (const formatter of formatters) {
-  module.exports[formatter.name] = require(formatter.path)
+module.exports = {
+  filterExtraFields: require('./filterExtraFields'),
+  generateHTML: require('./generateHTML'),
+  parseDependents: require('./parseDependents'),
+  serializeDepends: require('./serializeDepends')
 }
