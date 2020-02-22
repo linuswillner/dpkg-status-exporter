@@ -4,7 +4,7 @@ A simple and lightweight program to export an HTML index with some key informati
 
 ## Installation
 
-This program requires Node.js version 10 or above.
+This program requires Node.js version 10 or above. Other than that, the program is entirely dependencyless.
 
 ```bash
 git clone https://github.com/linuswillner/dpkg-status-exporter.git
@@ -15,8 +15,6 @@ npm i --no-optional
 # Optional: Install the above + linting and unit testing tools
 npm i
 ```
-
-The program itself is entirely dependencyless.
 
 ## Usage
 
