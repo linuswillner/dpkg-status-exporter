@@ -1,6 +1,6 @@
 # dpkg-status-exporter
 
-A simple and lightweight program to export an HTML index with some key information about operating system packages on Debian based systems, using `/var/lib/dpkg/status`.
+A simple and lightweight program to export an HTML index with some key information about operating system packages on Debian-based systems.
 
 ## Installation
 
