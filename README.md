@@ -16,6 +16,8 @@ npm i --no-optional
 npm i
 ```
 
+The program itself is entirely dependencyless.
+
 ## Usage
 
 To run the program with its default settings, run `npm start`.
