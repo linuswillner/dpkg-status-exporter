@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
-    working_directory: ~/nodejs-boilerplate
+    working_directory: ~/dpkg-status-exporter
     steps:
       - checkout
       - restore_cache:
