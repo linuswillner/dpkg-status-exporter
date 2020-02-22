@@ -37,14 +37,17 @@ module.exports = packageList => {
     const hasDependencies = Object.keys(currentPackage.Depends).length > 0
     const hasDependents = currentPackage.Dependents.length > 0
 
+    // Add data-testid properties only in testing mode (Ignoring else because tests can't run in prod mode and vice versa)
+    const addTestId = id => process.env.TEST ? `data-testid="${id}"` : /* istanbul ignore next */ ''
+
     const html = `
-      <li data-testid="package">
-        <details data-testid="details" id="${pkg}">
-          <summary data-testid="summary">${pkg}</summary>
-          <div data-testid="name"><b>Name:</b> ${pkg}</div>
-          <div data-testid="description"><b>Description:</b> ${currentPackage.Description.replace(/\n/g, '<br>')}</div>
-          <div data-testid="dependencies">${hasDependencies ? `<b>Dependencies:</b> ${dependencyLinks}` : ' '}</div>
-          <div data-testid="dependents">${hasDependents ? `<b>Dependents:</b> ${dependentLinks}` : ' '}</div>
+      <li ${addTestId('package')}>
+        <details ${addTestId('details')} id="${pkg}">
+          <summary ${addTestId('summary')}>${pkg}</summary>
+          <div ${addTestId('name')}><b>Name:</b> ${pkg}</div>
+          <div ${addTestId('description')}><b>Description:</b> ${currentPackage.Description.replace(/\n/g, '<br>')}</div>
+          <div ${addTestId('dependencies')}>${hasDependencies ? `<b>Dependencies:</b> ${dependencyLinks}` : ' '}</div>
+          <div ${addTestId('dependents')}>${hasDependents ? `<b>Dependents:</b> ${dependentLinks}` : ' '}</div>
         </details>
       </li>
     `.trimRight() // Trim excess end whitespace
