@@ -24,10 +24,13 @@ jobs:
           command: npm test
 
 workflows:
-  - build
-  - heroku/deploy-via-git:
-      requires:
-        - build
-      filters:
-        branches:
-          only: sequential-branch-filter
+  build_and_deploy:
+    jobs:
+      - build
+      - heroku/deploy-via-git:
+          requires:
+            - build
+          filters:
+            branches:
+              only: sequential-branch-filter
+    
