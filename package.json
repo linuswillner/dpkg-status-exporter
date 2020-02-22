@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "start-debug": "cross-env DEBUG=true node server.js",
-    "start-dev": "cross-env DEBUG=true nodemon server.js 6500 status.real",
+    "start-dev": "cross-env DEBUG=true nodemon server.js status.real",
     "test": "cross-env TEST=true jest",
     "test-watch": "jest --watch",
     "lint": "eslint .",

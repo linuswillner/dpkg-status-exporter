@@ -23,12 +23,10 @@ To run the program with its default settings, run `npm start`.
 If you wish to make some tweaks, the server takes the following parameters:
 
 ```bash
-node server.js [port] [fileLocationOverride]
+node server.js [fileLocationOverride]
 ```
 
-#### [port]
-
-Port to run the HTTP server on. Default is 6500.
+By default, the program exposes the web interface on port 6500. This can be altered by changing the `PORT` environment variable for the server process.
 
 #### [fileLocationOverride]
 
