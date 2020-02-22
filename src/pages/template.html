@@ -29,10 +29,10 @@
       <!-- Content injection point -->
       [packageList]
     </ul>
-    <!-- Polyfill details support in Internet Explorer and Edge -->
-    <script src="https://cdn.jsdelivr.net/npm/details-polyfill@1/index.min.js"></script>
+    <!-- Polyfill <details> element support in Internet Explorer and Edge -->
+    <script src="https://cdn.jsdelivr.net/npm/details-element-polyfill@2.4.0/dist/details-element-polyfill.js" integrity="sha256-yut4cccRuQ4wDMqIa8lYof0FUeFSI9ud0D/uRHpTnls=" crossorigin="anonymous"></script>
     <script>
-      // Function to scroll a specific package into view and open its details automatically
+      // Scroll a specific package into view and open its details field automatically
       function jumpToPackage (name) {
         const package = document.getElementById(name)
         package.scrollIntoView()
