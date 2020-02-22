@@ -19,8 +19,8 @@ if (dpkgStatusLocationOverride) console.warn(`Manually overriding location of /v
 http.createServer(async (req, res) => {
   console.debug(`Received request from ${req.connection.remoteAddress}.`)
 
-  // Enforce always accessing the root
-  if (req.url !== '/') {
+  // Enforce always accessing the root (Excluding favicon)
+  if (req.url !== '/' && req.url !== '/favicon.ico') {
     console.debug(`Requester requested to access unwanted path ${req.url}, redirecting...`)
     res.writeHead(301, { Location: '/' })
     res.end()
