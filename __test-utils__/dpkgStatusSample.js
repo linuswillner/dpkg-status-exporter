@@ -1,7 +1,7 @@
 /*
   The below extract from a real /var/lib/dpkg/status index includes a representative sample of
   all the things this program needs to deal with: Dependencies, versioned dependencies,
-  alternates and reverse dependencies along with the obvious like names and descriptions
+  alternates and reverse dependencies.
 */
 
 const sample = `

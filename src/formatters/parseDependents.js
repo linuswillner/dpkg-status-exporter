@@ -1,8 +1,4 @@
-/**
- * Scan the package list for dependents of a pacakge
- * @param {String} packageName The name of the package to scan for
- * @param {Object} packageList Serialised dpkg status index that has dependencies already parsed
- */
+// Scan package list for dependents of a package
 const scanForDependents = (packageName, packageList) => {
   const dependents = []
 
@@ -18,6 +14,7 @@ const scanForDependents = (packageName, packageList) => {
 /**
  * Map package dependents such that each package has a list of possible dependents
  * @param {Object} packageList Serialised dpkg status index that has dependencies already parsed
+ * @returns {Object} Index where a Dependents field has been added with all the dependents of a package
  */
 module.exports = packageList => {
   for (const pkg in packageList) {

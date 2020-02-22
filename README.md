@@ -4,7 +4,7 @@ A simple and lightweight program to export an HTML index with some key informati
 
 ## Installation
 
-This program requires Node.js and NPM to run.
+This program requires Node.js version 10 or above.
 
 ```bash
 git clone https://github.com/linuswillner/dpkg-status-exporter.git
@@ -32,9 +32,15 @@ Port to run the HTTP server on. Default is 6500.
 
 #### [fileLocationOverride]
 
-A manual override for the location of the dpkg status data, allowing the usage of mock data (Such as the bundled `status.real` file).
+A manual override for the location of the dpkg status data, allowing the usage of mock data.
 
-**Note:** For security reasons, this option is ignored unless `process.env.DEBUG` is set to `true`.
+**Note:** For security reasons, this option is ignored unless `process.env.DEBUG` is set to `true`. This is already set for the `start-debug` and `start-dev` scripts.
+
+## Running on non-Debian systems
+
+Out of the box, this program only supports Debian based systems that use `dpkg` for package management since it requires access to `/var/lib/dpkg/status` and will throw an error if this file cannot be found.
+
+However, for development, it can be run on non-Debian systems by passing a reference to an extracted dpkg status index file using the `fileLocationOverride` parameter. One such file is bundled with this repository for development purposes, namely `status.real`.
 
 ## Testing
 

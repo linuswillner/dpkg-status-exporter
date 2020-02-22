@@ -1,7 +1,8 @@
-// Creates a link element with a reference to the package in question that will jump to it and open its details
+// Creates a link element with a reference to a package and that, when clicked, will jump to it and open its details
+// The jumpToPackage function is defined inline in the HTML template
 const createLink = packageName => `<a href="#${packageName}" onclick="jumpToPackage('${packageName}')">${packageName}</a>`
 
-// Merge dependencies into an array and map alternates, if any, to links (If present in the index)
+// Merge dependencies into an array of strings and map alternates, if any, to links (If present in the index)
 const mapDependencies = (dependencies, packageList) => {
   const dependencyList = []
 
@@ -11,8 +12,10 @@ const mapDependencies = (dependencies, packageList) => {
     if (alternates.length > 0) {
       // If alternate is included in the index, linkify it, otherwise just print its name
       const alternateLinks = alternates.map(alt => packageList[alt] ? createLink(alt) : alt)
+
       // Create link for original dependency as well and join it together with its alternates
       const formattedDependencies = `${createLink(dep)} <b>|</b> ${alternateLinks.join(' <b>|</b> ')}`
+
       dependencyList.push(formattedDependencies)
     } else {
       dependencyList.push(createLink(dep))
@@ -25,6 +28,7 @@ const mapDependencies = (dependencies, packageList) => {
 /**
  * Strip version numbers from the Depends field and format it to an array
  * @param {Object} packageList Fully serialised and processed dpkg status index
+ * @returns {Array<String>} Array of HTML elements containing the information about each package
  */
 module.exports = packageList => {
   const packageDetails = []

@@ -1,7 +1,7 @@
 /**
- * Strip version numbers from the Depends field and format it to an array
+ * Serialise the Depends field of a package by removing version numbers and converting it to a processable data structure
  * @param {Object} packageList Serialised dpkg status index (Extraneous field filtering is not necessary but recommended)
- * @returns {Object} Package index where the Depends field has the following data structure: { [dependency]: { alternates: [] } }
+ * @returns {Object} Index where the Depends field has the following data structure: { [dependency]: { alternates: [] }, ... }
  */
 module.exports = packageList => {
   for (const pkg in packageList) {
