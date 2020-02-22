@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "HTML summary exporter for /var/lib/dpkg/status",
   "main": "server.js",
+  "engines": {
+    "node": "13.x"
+  },
   "scripts": {
     "start": "node server.js",
     "start-debug": "cross-env DEBUG=true node server.js",
